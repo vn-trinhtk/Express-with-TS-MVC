@@ -4,8 +4,6 @@ export interface BaseModelParams {
 
 export class BaseModel {
 
-	id: string = '';
-
 	static getModel(model: BaseModelParams, params: BaseModelParams): BaseModelParams {
 		(<any> model).getDefaultValues = (): BaseModelParams => {
 			return params;

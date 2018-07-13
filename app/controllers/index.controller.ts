@@ -1,5 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { UserModel } from '../models';
+import { UserService } from "../services/user.service";
 
 class IndexRouter {
 
@@ -17,15 +18,22 @@ class IndexRouter {
         if (!this.router) return;
         let user: UserModel = new UserModel({
             name: 'Kingsley',
-            permission: 'admin',
-            email: 'trinhtk@rak.aoi-sys.vn'
-
+            permission: 'Admin',
+            email: 'khtrinh.tran@gmail.com'
         });
+
+        let userSvc: UserService = new UserService();
+        userSvc.create(user).then((res: any) => {
+            console.log('Saved user id', res.id);
+        });
+        // userSvc.list();
+
+        // user.save();
 
         this.router.get('/', (req: Request, res: Response) => {
             res.render('index', {
                 title: 'Hello',
-                message: 'It is your first application, ' + user.getName()
+                message: 'It is your first application'
             })
         })
 
@@ -33,4 +41,5 @@ class IndexRouter {
 }
 
 // Singleton
-export const IndexController: Router = new IndexRouter().getRouter();
+const indexRouter = new IndexRouter();
+export const IndexController: Router = indexRouter.getRouter();
