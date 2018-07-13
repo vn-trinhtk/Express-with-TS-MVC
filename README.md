@@ -75,8 +75,7 @@ This project is try to make ExpressJS work with TypeScript follow MVC.
     ```
     parse-dashboard --appId yourAppId --masterKey yourMasterKey --serverURL "https://example.com/parse" --appName optionalName
     ```
-    ## Configuring Parse Dashboard
-    File
+    ## Configuring Parse Dashboard File
         
     You can also start the dashboard from the command line with a config file. To do this, create a new file called parse-dashboard-config.json inside your local Parse Dashboard directory hierarchy. The file should match the following format:
 
